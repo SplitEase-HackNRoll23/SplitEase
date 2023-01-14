@@ -2,7 +2,7 @@ import os
 from webbrowser import get
 
 import telebot
-from telebot.types import BotCommand, InlineKeyboardButton, InlineKeyboardMarkup, LabeledPrice
+from telebot.types import BotCommand
 import certifi
 import time
 from datetime import datetime, timedelta
@@ -17,7 +17,7 @@ conn = psycopg2.connect(database=url.path[1:], user=url.username, password=url.p
 cursor = conn.cursor()
 
 # Telegram Bot setup
-API_KEY = '5942614858:AAHRlUVi-Y_7AOTZmYHMSaNGi29WXw66-1Q'
+API_KEY = '5802653714:AAGRvJoocdJ0K9Vb0ouaKU6YVZNMW5BgnkI'
 bot = telebot.TeleBot(API_KEY)
 
 bot.set_my_commands([
@@ -43,7 +43,7 @@ def start(message):
                 \nWelcome to Study.io's reminder bot!
                 \nTo get started, please type /login [token_id] and key in your unique token_id.
                 \nYou can get your token_id by clicking the <b>Telegram</b> icon under reminders on our <a href="https://study-io.herokuapp.com/">website</a>. 
-                \nFor more details, check out /help!""".format(first_name)
+                \nFor more details, check out /help!""".format(chat_user)
     bot.send_message(chat_id, message_text, parse_mode= 'HTML')
 
 # Running the bot
