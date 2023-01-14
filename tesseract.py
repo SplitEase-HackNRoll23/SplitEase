@@ -1,5 +1,5 @@
 import pytesseract as Tess
-Tess.pytesseract.tesseract_cmd = r'Tesseract-OCR\tesseract.exe'
+Tess.pytesseract.tesseract_cmd = r'\tesseract\5.3.0\bin\tesseract.exe'
 import cv2
 import re
 
