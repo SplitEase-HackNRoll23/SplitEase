@@ -210,13 +210,16 @@ def overview(message):
                             break
 
     for result in results:
-        response = response + str(counter) + ". " + result["username"] + "\n"
+        response = response + "<b>" + str(counter) + ". @" + result["username"] + "</b>\n"
         response = response + "Amount Spent: <b>" + str(result["amount_spent"]) + "</b>\n"
         response = response + "Amount Paid: <b>" + str(result["amount_paid"]) + "</b>\n"
-        response = response + "Amount Owed: <b>" + str(result["amount_paid"] - result["amount_spent"]) + "</b>\n\n"
+        response = response + "Amount Owed: <b>" + str(result["amount_paid"] - result["amount_spent"]) + "</b>\n"
         if result["username"] in owes:
+            response = response + "\n<b>Owes:</b> "
+            x = 1
             for key, value in owes[result["username"]].items():
-                response = response + "Owes: " + str(key) + ": <b>" + str(value) + "</b>\n"
+                response = response + "\n" + str(x) + ". @" + str(key) + ": <b>" + str(value) + "</b>"
+                x += 1
         response += "\n"
         counter = counter + 1
 
